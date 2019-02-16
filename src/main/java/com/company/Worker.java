@@ -1,48 +1,50 @@
 package com.company;
 
-import java.io.IOException;
+import com.google.gson.Gson;
 
 public class Worker {
 
     final int commandNumbForParsing = 1;
-    final  int jsonNumbForParsing = 2;
+    final int jsonNumbForParsing = 2;
+    Gson gson;
 
-    public Worker(String message) {
-        sorter(parseCommand(message, commandNumbForParsing));
+    public Worker(String url) {
+        sorter(url);
+        gson = new Gson();
     }
 
-    private void sorter(String message) {
-        if(message != null)
-        switch (message) {
-            case "signup": {
-                System.out.println("SIGNUP");
-                processSignUp();
-                break;
+    private void sorter(String url) {
+        if (!url.equals(null))
+            switch (parseCommand(url, commandNumbForParsing)) {
+                case "signup": {
+                    System.out.println("SIGNUP");
+                    processSignUp(url);
+                    break;
+                }
+                case "signin": {
+                    System.out.println("SIGNIN");
+                    processSignIn(url);
+                    break;
+                }
+                case "add": {
+                    System.out.println("ADD");
+                    processAdd(url);
+                    break;
+                }
+                case "buy": {
+                    System.out.println("BUY");
+                    processBuy(url);
+                    break;
+                }
+                case "getall": {
+                    System.out.println("GETALL");
+                    processGetAll(url);
+                    break;
+                }
+                default: {
+                    break;
+                }
             }
-            case "signin": {
-                System.out.println("SIGNIN");
-                processSignIn();
-                break;
-            }
-            case "add": {
-                System.out.println("ADD");
-                processAdd();
-                break;
-            }
-            case "buy": {
-                System.out.println("BUY");
-                processBuy();
-                break;
-            }
-            case "getall": {
-                System.out.println("GETALL");
-                processGetAll();
-                break;
-            }
-            default: {
-                break;
-            }
-        }
     }
 
     private String parseCommand(String url, int i) {
@@ -54,29 +56,35 @@ public class Worker {
     }
 
     private void processSignIn(String url) {
-
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        User user = gson.fromJson(jsonString, User.class);
+        System.out.println(user.toString());
     }
 
     private void processSignUp(String url) {
-
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        System.out.println(jsonString);
     }
 
-    private void processAdd() throws IOException {
-
+    private void processAdd(String url) {
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        System.out.println(jsonString);
     }
 
     private void processBuy(String url) {
-
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        System.out.println(jsonString);
     }
 
     private void processGetAll(String url) {
-
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        System.out.println(jsonString);
     }
 
     private void processSignOut(String url) {
-
+        String jsonString = parseCommand(url, jsonNumbForParsing);
+        System.out.println(jsonString);
     }
-
 
 
 }

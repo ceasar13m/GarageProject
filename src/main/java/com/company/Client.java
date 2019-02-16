@@ -20,7 +20,9 @@ public class Client extends Thread {
                 String message = scanner.nextLine();
 
                 while(true) {
-                    writer.write(message + "\n");
+                    writer.write("/signin/{\"login\": \"ilnur\",\n" +
+                            "      \"password\": \"332\"\n" +
+                            "    }");
                     writer.flush();
                     if(message.equals("exit"))
                         break;
