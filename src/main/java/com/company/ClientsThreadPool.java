@@ -19,8 +19,9 @@ public class ClientsThreadPool extends Thread {
         try {
             reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-
+            System.out.println("all1");
             message = reader.readLine();
+            System.out.println("all2");
             while (true) {
                 System.out.println("Сервер получил сообщение: " + message);
                 if (message.equals("exit"))
@@ -35,6 +36,7 @@ public class ClientsThreadPool extends Thread {
 
             System.out.println("Поток клиента закрыт");
         } catch (IOException e) {
+            System.out.println("all...");
             e.printStackTrace();
         }
 

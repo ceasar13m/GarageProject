@@ -57,8 +57,8 @@ public class Worker {
 
     private void processSignIn(String url) {
         String jsonString = parseCommand(url, jsonNumbForParsing);
-        User user = gson.fromJson(jsonString, User.class);
-        System.out.println(user.toString());
+        System.out.println(jsonString);
+        //User user = gson.fromJson(jsonString, User.class);
     }
 
     private void processSignUp(String url) {

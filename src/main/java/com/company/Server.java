@@ -17,8 +17,11 @@ public class Server extends  Thread{
                 clientSocket = serverSocket.accept();
                 ClientsThreadPool clientsThreadPool = new ClientsThreadPool(clientSocket);
                 clientsThreadPool.start();
+                clientsThreadPool.join();
             }
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }

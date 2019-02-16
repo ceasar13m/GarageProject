@@ -36,6 +36,7 @@ public class ClientTest {
             user.login = "ainur";
             user.password = "123";
             signInRequest += gson.toJson(user, User.class);
+            signInRequest += "\n";
             System.out.println(signInRequest);
             writer.write(signInRequest);
             writer.flush();
