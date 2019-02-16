@@ -1,4 +1,4 @@
-package com.company;
+/*package com.company;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -20,9 +20,7 @@ public class Client extends Thread {
                 String message = scanner.nextLine();
 
                 while(true) {
-                    writer.write("/signin/{\"login\": \"ilnur\",\n" +
-                            "      \"password\": \"332\"\n" +
-                            "    }");
+                    writer.write();
                     writer.flush();
                     if(message.equals("exit"))
                         break;
@@ -37,3 +35,4 @@ public class Client extends Thread {
         }
     }
 }
+*/
